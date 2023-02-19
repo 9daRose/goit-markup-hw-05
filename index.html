@@ -42,7 +42,7 @@
                 href="#"
                 target="_self"
                 rel="noreferrer noopener"
-                class="header-link link current"
+                class="header-link link current header-link-current"
                 >Studio</a
               >
             </li>
@@ -88,7 +88,9 @@
         <div class="main-text-btn">
           <h1 class="main-text">Effective Solutions for Your Business</h1>
           <div class="main-btn-block">
-            <button class="main-btn" type="button">Order Service</button>
+            <button class="main-btn" type="button" data-modal-open>
+              Order Service
+            </button>
           </div>
         </div>
       </section>
@@ -499,5 +501,15 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-btn" data-modal-close>
+          <svg class="modal-btn-icon" width="8" height="8">
+            <use href="./images/icons.svg#icon-close-black-18dp-2-1"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

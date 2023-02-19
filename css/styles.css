@@ -10,6 +10,7 @@
         --navy-blue-modal: #2E2F42;
         --grey: #2E2F42;
         --main-color: #FFF;
+        --timing-cube: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*html{box-sizing: border-box;}
@@ -125,10 +126,11 @@ a.logo{
 
 .nav-item{}
 
-.nav-item > .header-link{
+.header-link{
         font-weight: 500;
         line-height: 1.5em;
         color:var(--navy-blue);
+        position: relative;
 }
 
 .header-link:hover,
@@ -137,6 +139,33 @@ a.logo{
   color:var(--ocean);
 }
 
+/*.header-link::after{
+    content: '';
+    position:absolute;
+    top: 42.5px;
+    display: block;
+    width: 100%;
+    height: 4px;  
+    background-color: var(--ocean);  
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 250ms var(--timing-cube);
+}
+
+.header-link:hover::after{
+opacity: 1;
+}*/
+
+.header-link-current::after{
+        content: '';
+        position: absolute;
+        top: 42.5px;
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: var(--ocean);
+        border-radius: 2px;
+}
 
 /*address*/
 .address{margin-left: auto;}
@@ -217,11 +246,45 @@ a.logo{
         
 }
 
-.item-port:hover, .item-port:focus{
-box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+.item-port:nth-child(n3) {
+        margin-right: 0px;
 }
 
-.item-port:nth-child(n3){margin-right: 0px;}
+.item-port-hover:hover,
+.item-port-hover:hover .item-p-overlay-text,
+.item-port-hover:focus .item-p-overlay-text,
+.item-port-hover:focus{
+box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+transform: translate(0, 0);
+}
+
+.item-port-hover{}
+
+.img-text-wrapper{
+        position: relative;
+        overflow: hidden;
+}
+
+.item-p-overlay-text {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        padding: 40px 32px 164px 32px;
+        background-color: var(--iris);
+        color: var(--cloud);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        overflow: auto;
+        transform: translate(0, 100%);
+        transition: transform 250ms var(--timing-cube);
+}
+
+
+
 
 .item-title-port{
       
@@ -245,7 +308,11 @@ box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.1
 
 .port-img{}
 
-.link-port{}
+
+
+a.link-port{
+        display: block;
+}
 
 .item-title-port{
         font-weight: 500;
@@ -510,6 +577,8 @@ h2.team-title{text-align: center; margin-bottom: 72px;}
         color:var(--cornflower); 
         width:264px;
         margin-top:16px;
+        letter-spacing: 0.02em;
+        line-height: 24px;
 }
 
 .footer-info{
@@ -554,4 +623,70 @@ h2.team-title{text-align: center; margin-bottom: 72px;}
 .footer-soc-link:hover, 
 .footer-soc-link:focus{
         background-color: var(--green);
+}
+
+
+/*************modal**************/
+
+.backdrop{
+        position:fixed;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(46, 47, 66, 0.4);
+        transition: opacity 250ms var(--timing-cube), visibility 250ms var(--timing-cube);
+}
+
+/*modal window when open*/
+.modal{
+        
+        width: 408px;
+        min-height: 576px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scaleX(1);
+        /*transform: translate(-50%, -50%) scaleX(1) rotate(360deg);*/
+        transition: 350ms var(--timing-cube);
+        background: #FCFCFC;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 24px;
+
+        
+}
+
+
+.modal-btn{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: var(--cornflower);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+}
+
+
+.modal-btn:hover{background-color: 
+        var(--ocean); 
+        border: none;
+        fill: var(--main-color);
+}
+
+.modal-btn-icon{
+
+}
+
+.is-hidden{
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+}
+
+/*modal window when hidden*/
+.backdrop.is-hidden .modal{
+transform: translate(-50%, -50%) scaleX(0);
 }
