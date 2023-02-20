@@ -131,6 +131,7 @@ a.logo{
         line-height: 1.5em;
         color:var(--navy-blue);
         position: relative;
+        transition: 250ms var(--timing-cube);
 }
 
 .header-link:hover,
@@ -182,6 +183,7 @@ opacity: 1;
         color: inherit;
         font-size: 16px;
         line-height: 1.5em;
+        transition: 250ms var(--timing-cube);
         }
 
 .mail{}
@@ -222,6 +224,8 @@ opacity: 1;
         color:var(--iris);
         letter-spacing: 0.04em;
         padding:12px 24px;
+        transition: 250ms var(--timing-cube);
+        
         
 }
 
@@ -360,7 +364,10 @@ a.link-port{
         line-height: 1em;
 
 }
-.main-btn-block{text-align: center;}
+.main-btn-block{
+        text-align: center;
+        
+}
 
 .main-btn{
         display: inline-block;
@@ -377,7 +384,7 @@ a.link-port{
         padding:16px 32px;
         min-width: 169px; 
         text-align: center;
-        
+        transition: 250ms var(--timing-cube);
 }
 
 .main-btn:hover,
@@ -504,6 +511,7 @@ height: 40px;
         display: flex;
         justify-content: center; 
         align-items: center;
+        transition: 250ms var(--timing-cube);
 }
 
 .team-soc-link:hover, .team-soc-link:focus{
@@ -552,6 +560,7 @@ h2.team-title{text-align: center; margin-bottom: 72px;}
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 250ms var(--timing-cube);
 }
 
 .customer-icon{fill: #AFB1B8;}
@@ -618,6 +627,7 @@ h2.team-title{text-align: center; margin-bottom: 72px;}
         justify-content: center;
         align-items: center;
         background-color: rgba(255, 255, 255, 0.1);
+        transition: 250ms var(--timing-cube);
 }
 
 .footer-soc-link:hover, 
@@ -652,8 +662,6 @@ h2.team-title{text-align: center; margin-bottom: 72px;}
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
         border-radius: 4px;
         padding: 24px;
-
-        
 }
 
 
